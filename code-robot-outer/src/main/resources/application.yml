@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mc_oauth?useUnicode=true&characterEncoding=utf-8&connectTimeout=60000&socketTimeout=60000&serverTimezone=GMT%2B8
+    username: root
+    password: hy190418
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    sql-script-encoding: UTF-8
+
+#keeper:
+#  author: robot
+
+db:
+  include-tables: #选定库中的表
+      - "mc_account"
+
+package:
+  pkg-path: com.robot.haha #生成项目的基础包路径
+  service-is-interface: true
+  name-strategy:
+    scheme: UNDERLINE_TO_CAMEL #命名转换策略。UNDERLINE_TO_CAMEL：下划线转驼峰；UNCHANGE：不做修改
+    class-remove-prefix: #表名转类名时去掉前缀
+      - "mc_"
+    #field-remove-prefix: #字段转化时需要去掉前缀
+
+#模版路径
+template: 
+  path: ../code-robot-core/src/main/resources/template
+
+project:
+  groupId: com.haha2
+  artifactId: haha-hah
+  name: haha2 #项目名称
+  rootPath: F:\dev\work #项目所在工作空间
+
+logging:
+  config: classpath:logback.xml
+  level:
+    root: INFO

@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.robot</groupId>
+    <artifactId>code-robot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>code-robot-core</artifactId>
+  
+  <dependencyManagement>
+    <dependencies>
+        <!-- Override Spring Data release train provided by Spring Boot -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-releasetrain</artifactId>
+            <version>Fowler-SR2</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>2.2.2.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+	<dependencies>
+		<!-- Core starter, including auto-configuration support, logging and YAML -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<!-- Starter for building web, including RESTful, applications using Spring MVC. Uses Tomcat as the default embedded container -->
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency> -->
+		
+		<!-- Starter for using JDBC with the HikariCP connection pool -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<!--MySQL JDBC驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
+		<!-- Starter for testing Spring Boot applications with libraries including JUnit, Hamcrest and Mockito -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<!-- exclude JUnit 4 support -->
+		        <exclusion>
+		            <groupId>org.junit.vintage</groupId>
+		            <artifactId>junit-vintage-engine</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
+		<!-- ClassNotFoundException: net.bytebuddy.dynamic.loading.ClassInjector$UsingReflection -->
+		<dependency>
+		  <groupId>net.bytebuddy</groupId>
+		  <artifactId>byte-buddy</artifactId>
+		  <version>1.10.6</version>
+		  <scope>runtime</scope>
+		</dependency>
+		<dependency>
+		  <groupId>org.objenesis</groupId>
+		  <artifactId>objenesis</artifactId>
+		  <version>2.1</version>
+		  <scope>runtime</scope>
+		</dependency>
+		
+		<!-- Starter for logging using Logback. Default logging starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+		
+		<!-- 自动加载mybatis配置 -->
+		<!-- <dependency>
+		    <groupId>org.mybatis.spring.boot</groupId>
+		    <artifactId>mybatis-spring-boot-starter</artifactId>
+		    <version>2.1.1</version>
+		</dependency> -->
+		<!-- MyBatis 插件依赖 -->
+		<!-- <dependency>
+		    <groupId>tk.mybatis</groupId>
+		    <artifactId>mapper-spring-boot-starter</artifactId>
+		    <version>2.1.5</version>
+		</dependency> -->
+		<!-- 注册分页拦截器 -->
+		<!-- <dependency>
+		    <groupId>com.github.pagehelper</groupId>
+		    <artifactId>pagehelper-spring-boot-starter</artifactId>
+		    <version>1.2.13</version>
+		</dependency> -->
+		
+		<!-- Starter for building MVC web applications using FreeMarker views -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-freemarker</artifactId>
+		    <!-- <version>2.2.2.RELEASE</version> -->
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

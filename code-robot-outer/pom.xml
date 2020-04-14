@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.robot</groupId>
+    <artifactId>code-robot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>code-robot-outer</artifactId>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>com.robot</groupId>
+  		<artifactId>code-robot-core</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.18.10</version>
+		<scope>provided</scope>
+	</dependency>
+  	<!--MySQL JDBC驱动 -->
+	<!-- <dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.18</version>
+	</dependency> -->
+	<!--阿里 FastJson依赖 -->
+	<!-- <dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>${alibaba.fastjson}</version>
+	</dependency> -->
+  </dependencies>
+  
+  <build>
+      <plugins>
+          <plugin>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+              <configuration>
+				<mainClass>com.robot.out.Writer</mainClass>
+				<includeSystemScope>true</includeSystemScope>
+			  </configuration>
+			  <executions>
+				<execution>
+					<goals>
+						<goal>repackage</goal>
+					</goals>
+				</execution>
+			  </executions>
+          </plugin>
+      </plugins>
+  </build>
+</project>
